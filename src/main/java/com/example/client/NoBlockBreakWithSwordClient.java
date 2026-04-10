@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
-import net.minecraft.client.MinecraftClient;
 
 public class NoBlockBreakWithSwordClient implements ClientModInitializer {
 
