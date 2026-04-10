@@ -2,9 +2,10 @@ package com.example.client;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
-import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
+import net.minecraft.client.MinecraftClient;
 
 public class NoBlockBreakWithSwordClient implements ClientModInitializer {
 
@@ -13,23 +14,18 @@ public class NoBlockBreakWithSwordClient implements ClientModInitializer {
 
         AttackBlockCallback.EVENT.register((player, world, hand, pos, direction) -> {
 
-            if (player.getMainHandStack().isOf(Items.WOODEN_SWORD) ||
-                player.getMainHandStack().isOf(Items.STONE_SWORD) ||
-                player.getMainHandStack().isOf(Items.IRON_SWORD) ||
-                player.getMainHandStack().isOf(Items.GOLDEN_SWORD) ||
-                player.getMainHandStack().isOf(Items.DIAMOND_SWORD) ||
-                player.getMainHandStack().isOf(Items.NETHERITE_SWORD)) {
+            ItemStack item = player.getStackInHand(hand);
+
+            if (item.isOf(Items.WOODEN_SWORD) ||
+                item.isOf(Items.STONE_SWORD) ||
+                item.isOf(Items.IRON_SWORD) ||
+                item.isOf(Items.GOLDEN_SWORD) ||
+                item.isOf(Items.DIAMOND_SWORD) ||
+                item.isOf(Items.NETHERITE_SWORD)) {
 
                 return ActionResult.FAIL;
             }
 
-            return ActionResult.PASS;
-        });
-
-        UseBlockCallback.EVENT.register((player, world, hand, hit) -> {
-            if (player.getMainHandStack().isOf(Items.SWORD)) {
-                return ActionResult.FAIL;
-            }
             return ActionResult.PASS;
         });
     }
