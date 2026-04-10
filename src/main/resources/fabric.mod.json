@@ -2,10 +2,10 @@
 	"schemaVersion": 1,
 	"id": "modid",
 	"version": "${version}",
-	"name": "Example Mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "No Sword Block Break",
+	"description": "If you are holding a sword, you cannot break blocks, but you can fight.",
 	"authors": [
-		"Me!"
+		"ABOOD_KT"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
